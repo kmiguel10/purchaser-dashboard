@@ -12,8 +12,7 @@ export default function TestConnection() {
         // Test query: Fetch the current timestamp from Supabase
         const { data, error } = await supabaseClient
           .from("purchase_orders")
-          .select("po_number")
-          .limit(1);
+          .select("po_number");
 
         if (error) throw error;
 
@@ -32,7 +31,7 @@ export default function TestConnection() {
   return (
     <div>
       <h1>Supabase Connection Test</h1>
-      <p>{testMessage}</p>
+      <div>{JSON.stringify(testMessage)}</div>
     </div>
   );
 }
